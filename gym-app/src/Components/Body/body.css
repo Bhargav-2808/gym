@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.back{
+    /* background-image: url("./../../images/body.jpg"); */
+    background-size:cover;
+    object-fit: cover;
+    width: 100%;
+    height: 90vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+}
+
+/* pricing */
+.rounded-lg {
+    border-radius: 1rem !important;
+  }
+  
+  .text-small {
+    font-size: 0.9rem !important;
+  }
+  
+  .custom-separator {
+    width: 5rem;
+    height: 6px;
+    border-radius: 1rem;
+  }
+  
+  .text-uppercase {
+    letter-spacing: 0.2em;
+  }

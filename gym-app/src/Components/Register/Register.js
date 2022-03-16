@@ -1,128 +1,35 @@
-import React from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import React from 'react'
+import imagePath from './../../images/Login.jpeg'
+import './Register.css'
+import { Link } from 'react-router-dom'
+import { Container,Button } from 'react-bootstrap';
 
 function Register() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
   return (
-    <>
-      <Container>
-        <Row>
-          <Col lg={4}>
-          <form action="" onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-group">
-              
-              <input
-                type="text"
-                className="form-control"
-                id="fullname"
-                placeholder="Enter Your Full Name"
-                name= "fullname"
-                {...register('fullname', { required: true })}
-              />
-            </div>
-            <div className="form-group">
-              
-              <input
-                type="text"
-                className="form-control"
-                id="email"
-                placeholder="Enter Your E-mail Address"
-                name= "email"
-                {...register('email', { required: true })}
-              />
-            </div>
-            <div className="form-group">
-              
-              <input
-                type="text"
-                className="form-control"
-                id="phone"
-                placeholder="Enter Your Phone Number"
-                name= "phone"
-                {...register('phone', { required: true })}
-              />
-            </div>
-            <div className="form-group">
-              
-              <input
-                type="text"
-                className="form-control"
-                id="password"
-                placeholder="Enter Your Password"
-                name= "password"
-                {...register('password', { required: true })}
-              />
-            </div>
-            <div className="form-group">
-              
-              <select className="form-control" id="state" 
-              name= "city"
-              {...register('city', { required: true })}>
-                <option value="">--- Select Your State ---</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Assam">Assam</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Punjab">Punjab</option>
-              </select>
-            </div>
-            <div className="form-group">
-              
-                
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  id="male"
-                  value="male"
-                  name="gender"
-                 
-                {...register('gender', { required: true })}
-                />
-               
-                
+    <div className="my-5">
+      <Container className='register d-flex'>
+        <div className="box d-flex flex-column flex-md-row p-5 justify-content-center shadow">
+          <form action="" method="post">
+              <div className="d-flex flex-column">
+                  <h1>Sign Up</h1>
+                  <input className='my-2 p-1' type="text" name="" placeholder="First Name" />
+                  <input className='my-2 p-1' type="text" name="" placeholder="Last Name" />
+                  <input className='my-2 p-1' type="text" name="" placeholder="Mobile No." />
+                  <input className='my-2 p-1' type="email" name="" placeholder="Email" />
+                  <input className='my-2 p-1' type="password" name="" placeholder="Password" />
+                  <input className='my-2 p-1' type="password" name="" placeholder="Confirm Password" />
+                  <Button className='regButton mt-2' type="submit">Register</Button>
+                  <p className='text-center my-3'>Already Have An Accout?</p>
+                  {/* <Link to="/login"><Button className='supButton w-100'>Login</Button></Link> */}
               </div>
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  id="female"
-                  value="female"
-                  name="gender"
-                  
-                {...register('gender', { required: true })}
-                />
-               
-              </div>
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  id="other"
-                  value="other"
-                  name="gender"
-                  
-                  {...register('gender', { required: true })}
-                />
-               
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="form-check form-check-inline">
-                <input className="form-check-input" type="checkbox" id="tnc" 
-                name= "checkedbox"
-                {...register('checkedbox', { required: true })}/>
-               
-              </div>
-            </div>
-            <button className="btn btn-primary">Create New Account</button>
           </form>
-          </Col>
-        </Row>
+          <div>
+              <img className="img-fluid h-100 ps-5" src={imagePath} alt="LoginImg" />
+          </div>
+        </div>
       </Container>
-    </>
-  );
+    </div>
+  )
 }
 
 export default Register;
