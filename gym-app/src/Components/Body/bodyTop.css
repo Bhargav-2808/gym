@@ -1,0 +1,28 @@
+.back2{
+    background-image: url("./../../images/back2.jpg");
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width:100%;
+    /* opacity: 0.6; */
+    height: 100vh;
+    
+
+}
+
+.bodyTop_{
+    margin-top: 20vh;
+}
+
+.bodyTopHeader{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 5.2rem;
+    color: white;
+}
+.bodyTopPara{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+    color: white;
+}

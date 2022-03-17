@@ -5,15 +5,23 @@ import Body from './Components/Body/Body';
 import Login from './Components/Login/Login';
 import Premium from './Components/Premium/Premium';
 import ForgotPwd from './Components/ForgotPwd/ForgotPwd';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <>
-      {/* <Register/> */}
-      {/* <Login/> */}
-      {/* <Premium/> */}
-      {/* <ForgotPwd/> */}
-      <Body/> 
+      <Header/>
+       <Routes>
+          <Route exact path='/' element={<Body/>}/>
+          <Route exact path="/register" element={<Register />}/>
+          <Route exact path="/login" element={<Login />}/>
+          <Route exact path="/resetpassword" element={<ForgotPwd/>}/>
+          <Route exact path="/premium" element={<Premium />}/>
+        </Routes>
+      <Footer/>
+      
 
     </>
   );

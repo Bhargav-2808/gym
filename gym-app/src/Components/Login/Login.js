@@ -14,10 +14,10 @@ function Login() {
                   <input className='my-2 p-1' type="password" name="" placeholder="Password" />
                   <Button className='supButton mt-2'>Login</Button>
                   <hr />
-                  {/* <Link to="/resetpassword" style={{textDecoration:'none'}}><p className='text-center my-2'>Forgot Password</p></Link> */}
+                  <Link to="/resetpassword" exact style={{textDecoration:'none'}}><p className='text-center my-2'>Forgot Password</p></Link>
                   <hr />
                   <p className='text-center my-3'>Don't Have An Accout?</p>
-                  {/* <Link to="/register"><Button className='supButton mt-2 w-100'>Sign Up</Button></Link> */}
+                  <Link to="/register" exact><Button className='supButton mt-2 w-100'>Sign Up</Button></Link>
               </div>
           </form>
           <div>

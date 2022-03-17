@@ -9,7 +9,7 @@ const Premium = () => {
         <div className="box d-flex flex-column flex-md-row p-5 justify-content-center shadow">
           <form action="" method="post">
               <div className="d-flex flex-column">
-                  <h1>Calculate Dite</h1>
+                  <h1>Calculate Diet</h1>
                   <input className='my-2 p-1' type="text" name="" placeholder="Name" />
                   <input className='my-2 p-1' type="text" name="" placeholder="Age" />
                   <input className='my-2 p-1' type="email" name="" placeholder="Height(cm)" />

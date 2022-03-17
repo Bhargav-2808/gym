@@ -5,21 +5,23 @@ import "./body.css";
 import Chart from "./Chart";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import BodyTop from "./BodyTop";
 
 function Body() {
   return (
     <>
-      <Header />
+      <BodyTop/>
       <Pricing />
-      <Chart />
-      <Footer />
-      <Container fluid style={{}}>
+      {/* <Chart /> */}
+      
+      
+      {/* <Container fluid style={{}}>
         <div className="back">
           <Row>
             <Col></Col>
           </Row>
         </div>
-      </Container>
+      </Container> */}
     </>
   );
 }

@@ -20,7 +20,7 @@ function Register() {
                   <input className='my-2 p-1' type="password" name="" placeholder="Confirm Password" />
                   <Button className='regButton mt-2' type="submit">Register</Button>
                   <p className='text-center my-3'>Already Have An Accout?</p>
-                  {/* <Link to="/login"><Button className='supButton w-100'>Login</Button></Link> */}
+                  <Link to="/login"><Button className='supButton w-100'>Login</Button></Link>
               </div>
           </form>
           <div>
