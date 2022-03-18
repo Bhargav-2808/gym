@@ -2,17 +2,18 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Pricing from "./Pricing";
 import "./body.css";
-import Chart from "./Chart";
+
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import BodyTop from "./BodyTop";
+import Chart_ from "./Chart";
 
 function Body() {
   return (
     <>
       <BodyTop/>
       <Pricing />
-      {/* <Chart /> */}
+      <Chart_ />
       
       
       {/* <Container fluid style={{}}>

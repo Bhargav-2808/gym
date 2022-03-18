@@ -10,7 +10,7 @@ function Pricing() {
             <h1>Our <span style={{color:"#1b4a84"}}>Pricing</span></h1>
           </Col>
         </Row>
-        <Row className=" text-center align-items-end mt-2">
+        <Row className=" text-center align-items-end mt-5">
           <Col className="col-lg-4 mb-3 mb-lg-0">
             <div className="bg-white p-3 rounded-lg shadow">
               <h1 className="h6 text-uppercase font-weight-bold mb-2">Basic</h1>
