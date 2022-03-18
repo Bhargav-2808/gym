@@ -40,7 +40,8 @@ function Pricing() {
               </ul>
               <a
                 href="#"
-                className="btn btn-primary btn-block p-2 shadow rounded-pill"
+                className="btn  btn-block p-2 shadow rounded-pill"
+                style={{backgroundColor:"#1b4a84",color:"white"}}
               >
                 Subscribe
               </a>
@@ -76,7 +77,8 @@ function Pricing() {
               </ul>
               <a
                 href="#"
-                className="btn btn-primary btn-block p-2 shadow rounded-pill"
+                className="btn  btn-block p-2 shadow rounded-pill"
+                style={{backgroundColor:"#1b4a84",color:"white"}}
               >
                 Subscribe
               </a>
@@ -112,7 +114,8 @@ function Pricing() {
               </ul>
               <a
                 href="#"
-                className="btn btn-primary btn-block p-2 shadow rounded-pill"
+                className="btn  btn-block p-2 shadow rounded-pill"
+                style={{backgroundColor:"#1b4a84",color:"white"}}
               >
                 Subscribe
               </a>

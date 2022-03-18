@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import back2 from './../../images/back2.jpg'
 import './bodyTop.css'
 
@@ -20,7 +21,7 @@ function BodyTop() {
                         <p className='bodyTopPara'>
                           Empower you self with us
                         </p>
-                        <Button className='mt-3 preButton'>GET STARTED</Button>
+                        <Link  to="/premium"><Button className='preButton'>GET STARTED</Button></Link>
                         </div>
                       </Col>
                       
