@@ -9,7 +9,7 @@ function Login() {
         <div className="box d-flex flex-column flex-md-row p-5 justify-content-center shadow">
           <form action="" method="post">
               <div className="d-flex flex-column">
-                  <h1>Login</h1>
+                  <h1>Login 1</h1>
                   <input className='my-2 p-1' type="email" name="" placeholder="Email" />
                   <input className='my-2 p-1' type="password" name="" placeholder="Password" />
                   <Button className='supButton mt-2'>Login</Button>
