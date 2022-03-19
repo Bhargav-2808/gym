@@ -1,5 +1,5 @@
 const mongoose= require('mongoose');
-const URL=''
+const URL='mongodb+srv://gym123:gym123@gymdata.yjsro.mongodb.net/gymdata?retryWrites=true&w=majority'
 
 const connection =mongoose.connect(URL,
 {
@@ -7,8 +7,8 @@ const connection =mongoose.connect(URL,
    useUnifiedTopology: true
 }).then(()=>{
     console.log('Connected To Mongoose');
-}).catch(()=>{
-    console.log('Something Went Wrong');
+}).catch((err)=>{
+    console.log(err+'Something Went Wrong');
 })
 
 module.exports=connection;
