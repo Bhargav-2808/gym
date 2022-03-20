@@ -14,7 +14,8 @@ exports.addUser=async(req,res)=>{
     let cpass= req.body.cpassword;
 
     try {
-        let userExist=await Users.findOne({uemail});
+        let userExist=await Users.findOne({email:uemail});
+        console.log(userExist);
 
         if(userExist){
             res.status(400).json({'Error':'User Alreay Exist'});
