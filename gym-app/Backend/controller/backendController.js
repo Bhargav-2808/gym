@@ -1,6 +1,5 @@
 const Users = require("../model/user");
 const bcrypt = require('bcryptjs');
-const { default: mongoose } = require("mongoose");
 
 exports.addUser=async(req,res)=>{
     let fname= req.body.firstName;
@@ -54,7 +53,36 @@ exports.addUser=async(req,res)=>{
         }
         
     } catch (error) {
-        res.status(500).json({Error:"Internal Server Error"});
+        res.status(500).json({"Error":"Internal Server Error"});
+        console.log({error});
+    }
+}
+
+exports.loginCheck=async(req,res)=>{
+    let email= req.body.email;
+    let password= req.body.password;
+
+    try {
+        let user= await Users.findOne({email})
+    
+        if(user){
+            let comparePassword=await bcrypt.compare(password, user.password);
+
+            if(comparePassword){
+                res.status(200).json({'Success':'Login Successfull.'});
+                // res.redirect("/");
+            }
+            else{
+                res.status(400).json({'Error':'Login Using Correct Credentials.'});
+                // res.redirect("/");
+            }
+    
+        }
+        else{
+            res.status(400).json({'Error':'No User Found.'});
+        }
+    } catch (error) {
+        res.status(500).json({"Error":"Internal Server Error"});
         console.log({error});
     }
 }

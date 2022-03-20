@@ -10,8 +10,8 @@ function Login() {
           <form action="" method="post">
               <div className="d-flex flex-column">
                   <h1>Login</h1>
-                  <input className='my-2 p-1' type="email" name="" placeholder="Email" />
-                  <input className='my-2 p-1' type="password" name="" placeholder="Password" />
+                  <input className='my-2 p-1' type="email" name="email" placeholder="Email" />
+                  <input className='my-2 p-1' type="password" name="password" placeholder="Password" />
                   <Button className='supButton mt-2'>Login</Button>
                   <hr />
                   <Link to="/resetpassword" exact style={{textDecoration:'none'}}><p className='text-center my-2'>Forgot Password</p></Link>
