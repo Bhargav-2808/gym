@@ -1,7 +1,7 @@
 const Users = require("../model/user");
 const bcrypt = require('bcryptjs');
 
-exports.addUser=async(req,res)=>{
+exports.registerUser=async(req,res)=>{
     let fname= req.body.firstName;
     let lname= req.body.lastName;
     let uname = fname+" "+lname;
@@ -63,7 +63,7 @@ exports.loginCheck=async(req,res)=>{
     let password= req.body.password;
 
     try {
-        let user= await Users.findOne({email})
+        let user= await Users.findOne({email:email})
     
         if(user){
             let comparePassword=await bcrypt.compare(password, user.password);
