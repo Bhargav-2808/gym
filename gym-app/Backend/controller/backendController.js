@@ -1,5 +1,6 @@
 const Users = require("../model/user");
 const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose')
 
 exports.addUser=async(req,res)=>{
     let fname= req.body.firstName;
@@ -14,7 +15,6 @@ exports.addUser=async(req,res)=>{
 
     try {
         let userExist=await Users.findOne({email:uemail});
-        console.log(userExist);
 
         if(userExist){
             res.status(400).json({'Error':'User Alreay Exist'});
