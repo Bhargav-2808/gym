@@ -7,11 +7,13 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import BodyTop from "./BodyTop";
 import Chart_ from "./Chart";
+import About from "../About/About";
 
 function Body() {
   return (
     <>
       <BodyTop/>
+      <About/>
       <Pricing />
       <Chart_ />
       

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url ="http://localhost:4500/";
+const url ="http://localhost:4500";
 
 
 const registerUser = async (user) =>{
@@ -13,4 +13,10 @@ const loginCheck = async (user) =>{
 
 }
 
-export {registerUser,loginCheck};
+const resetPassword = async (user) =>{
+    return await axios.post(`${url}/resetPassword`,user)
+
+}
+
+
+export {registerUser,loginCheck,resetPassword};
