@@ -15,8 +15,9 @@ function Register() {
   } = useForm();
 
   const onSubmit = async data =>{
+    console.log(data);
+    console.log(typeof(data));
     await registerUser(data);
-    //console.log(data);
   }
 
   return (

@@ -1,5 +1,7 @@
 const Users = require("../model/user");
+const nodemailer = require("nodemailer");
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
 
 exports.registerUser=async(req,res)=>{
@@ -12,7 +14,9 @@ exports.registerUser=async(req,res)=>{
 
     let pass= req.body.password;
     let cpass= req.body.cpassword;
-
+    const user = req.body;
+    console.log(user);
+    
     try {
         let userExist=await Users.findOne({email:uemail});
 
@@ -86,3 +90,40 @@ exports.loginCheck=async(req,res)=>{
         console.log({error});
     }
 }
+
+
+const JWT_SECRET= 'some super secret..'
+
+exports.resetPassword = async (req,res) =>{
+    const email =req.body.femail;
+    //console.log(email);
+        const  password = Users.find();
+       console.log(password);
+    try {
+        let user= await Users.findOne({email:email})
+        if(user){
+            
+        //create onetime link
+        
+        const secret= JWT_SECRET;
+            
+        }
+        else{
+            res.status(400).json({'Error':'Not registered Email'});
+        }
+    } catch (error) {
+        res.status(500).json({"Error":"Internal Server Error"});
+        console.log({error});
+    }
+}
+
+
+
+var transport = nodemailer.createTransport({
+    host: "smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: "b60b4b7288b921",
+      pass: "89a162a2447a5f"
+    }
+  });
