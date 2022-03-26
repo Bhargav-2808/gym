@@ -24,10 +24,10 @@ const forgotPassword = async (user) =>{
 
 // }
 
-// const resetPassword = async (user) =>{
-//     return await axios.post(`${url}/resetPassword`,user)
+const resetPassword = async (user) =>{
+    return await axios.post(`${url}/resetPassword`,user)
 
-// }
+}
 
 
-export {registerUser,loginCheck,forgotPassword};
+export {registerUser,loginCheck,forgotPassword,resetPassword};

@@ -92,6 +92,21 @@ exports.loginCheck=async(req,res)=>{
 }
 
 
+exports.resetPassword=async(req,res)=>{
+    
+    let Npassword= req.body.Npassword;
+    //console.log(Npassword)
+
+    
+    try {
+        
+    } catch (error) {
+        res.status(500).json({"Error":"Internal Server Error"});
+        console.log({error});
+    }
+}
+
+
 // const JWT_SECRET= 'some super secret..'
 
 // exports.forgotPassword = async (req,res) =>{

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Button } from "react-bootstrap";
 import imagePath from "./../../images/Login.jpeg";
 import { useForm } from "react-hook-form";
@@ -7,13 +7,17 @@ import Chart_ from "../Body/Chart_";
 
 const Premium = () => {
 
-  const data =20;
+  // const data =20;
+  const [cData, setcData] = useState({});
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) =>data
-    //await forgotPassword(data);
-    //console.log(data);
+  const onSubmit = (data) =>{
 
-  // console.log(chdata);
+    setcData(data);
+    //console.log(data);
+  }
+   
+
+  
   return (
     <div className="my-5">
       <Container className="register d-flex">
@@ -75,7 +79,7 @@ const Premium = () => {
         </div>
       </Container>
 
-      <Chart_ data_={data} />
+      <Chart_ data_={cData} />
     </div>
   );
 };

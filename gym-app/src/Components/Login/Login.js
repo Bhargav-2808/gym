@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { loginCheck } from "../../api";
 
+
+
 function Login() {
   const { register, handleSubmit } = useForm();
   const onSubmit = async data => {
@@ -38,7 +40,7 @@ function Login() {
                 Login
               </Button>
               <hr />
-              <Link to="/resetpassword" style={{ textDecoration: "none" }}>
+              <Link to="/forgotpassword" style={{ textDecoration: "none" }}>
                 <p className="text-center my-2">Forgot Password</p>
               </Link>
               <hr />

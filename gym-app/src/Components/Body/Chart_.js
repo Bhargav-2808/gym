@@ -6,20 +6,19 @@ import Chart from "react-google-charts";
 
 const Chart_ = ({data_}) => {
  
-  console.log(data_)
 
-  //const {name,age,height,weight,task } = chartdata;
-  //const weight = 65;
-  //const height=170;
-  // let bmi = (weight / ((height * height)/ 10000)).toFixed(2);
 
-  // const data = [
-  //   ["Index", "Number", { role: "style" }],
-  //   ["Weight(Kg)", weight, "blue"], // RGB value
-  //   ["Height(cm)", height, "violet"], // English color name
-  //   ["BMI", bmi, "green"],
-  //   // CSS-style declaration
-  // ];
+  const {name,age,height,weight,task } = data_;
+  
+  let bmi = (weight / ((height * height)/ 10000)).toFixed(2);
+
+  const data = [
+    ["Index", "Number", { role: "style" }],
+    ["Weight(Kg)", JSON.parse(weight), "blue"], // RGB value
+    ["Height(cm)", JSON.parse(height), "violet"], // English color name
+    ["BMI", bmi, "green"],
+    // CSS-style declaration
+  ];
 
   return (
     <>
@@ -33,7 +32,7 @@ const Chart_ = ({data_}) => {
           <Col>
             <Chart
               chartType="ColumnChart"
-              //data={data}
+              data={data}
               width={"100%"}
               height={"400px"}
             />

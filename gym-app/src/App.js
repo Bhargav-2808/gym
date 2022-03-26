@@ -8,6 +8,7 @@ import ForgotPwd from './Components/ForgotPwd/ForgotPwd';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import { Route, Routes } from 'react-router-dom';
+import ResetPwd from './Components/ForgotPwd/ResetPwd';
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
           <Route exact path='/' element={<Body/>}/>
           <Route exact path="/register" element={<Register />}/>
           <Route exact path="/login" element={<Login />}/>
-          <Route exact path="/resetpassword" element={<ForgotPwd/>}/>
+          <Route exact path="/forgotpassword" element={<ForgotPwd/>}/>
           <Route exact path="/premium" element={<Premium />}/>
+          <Route exact path="/resetpassword" element={<ResetPwd />}/>
         </Routes>
       <Footer/>
       
