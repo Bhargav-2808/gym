@@ -1,13 +1,18 @@
 import React from "react";
 import { Container, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import imagePath from "./../../images/Login.jpeg";
 import { useForm } from "react-hook-form";
-// import { forgotPassword } from "../../api";
+// import { ForgotPassword } from "../../api";
 
 const ForgotPwd = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
-    //  await forgotPassword(data);
+    // let navigate = useNavigate();
+    //  let response = await ForgotPassword(data);
+    // if (response){
+    //   navigate("/");
+    // }
     //console.log(data);
   };
   return (

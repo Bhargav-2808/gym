@@ -9,11 +9,12 @@ const Premium = () => {
 
   const data =20;
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) =>data
+  const onSubmit = (data) =>{
     //await forgotPassword(data);
-    //console.log(data);
+    console.log(data);
 
   // console.log(chdata);
+  }
   return (
     <div className="my-5">
       <Container className="register d-flex">

@@ -1,15 +1,18 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { loginCheck } from "../../api";
+import { LoginCheck } from "../../api";
 
 function Login() {
+  let navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const onSubmit = async data => {
     
-    await loginCheck(data);
-    // console.log(data);
+  let response =await LoginCheck(data);
+  if (response){
+    navigate("/");
+  }
 
   };
 
