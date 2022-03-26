@@ -3,18 +3,18 @@ import { Container, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import imagePath from "./../../images/Login.jpeg";
 import { useForm } from "react-hook-form";
-// import { ForgotPassword } from "../../api";
+ import { ForgotPassword } from "../../api";
 
 const ForgotPwd = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
     // let navigate = useNavigate();
-    //  let response = await ForgotPassword(data);
+    await ForgotPassword(data);
     // if (response){
     //   navigate("/");
     // }
-    //console.log(data);
-  };
+    console.log(data);
+  };  
   return (
     
     <div className="my-5">

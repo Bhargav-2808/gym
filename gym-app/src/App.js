@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/login" element={<Login />}/>
           <Route exact path="/forgotpassword" element={<ForgotPwd/>}/>
           <Route exact path="/premium" element={<Premium />}/>
-          <Route exact path="/resetpassword" element={<ResetPwd />}/>
+          <Route exact path="/resetpassword/:id/:token" element={<ResetPwd />}/>
         </Routes>
       <Footer/>
       
