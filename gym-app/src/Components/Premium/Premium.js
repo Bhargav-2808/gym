@@ -12,12 +12,16 @@ const Premium = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) =>{
 
+
     setcData(data);
     //console.log(data);
   }
    
 
   
+
+  
+
   return (
     <div className="my-5">
       <Container className="register d-flex">

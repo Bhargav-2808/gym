@@ -22,7 +22,6 @@ exports.registerUser=async(req,res)=>{
 
         if(userExist){
             res.status(400).json({'Error':'User Alreay Exist'});
-            // res.redirect('/');
         }
 
         else{
@@ -41,18 +40,16 @@ exports.registerUser=async(req,res)=>{
                 let addedUser = await newUser.save();
 
                 if(addedUser){
-                    res.redirect("/");
+                    
                     res.status(200).json({'Success':'User Added'})
                 }
                 else{
                     res.status(500).json({'Error':'Internal Server Error'});
-                    // res.redirect('/');
                 }
             }
 
             else{
                 res.status(406).json({'Error':'Both Password must be same.'});
-                // res.redirect('/');
             }
         }
 
@@ -74,11 +71,9 @@ exports.loginCheck=async(req,res)=>{
 
             if(comparePassword){
                 res.status(200).json({'Success':'Login Successfull.'});
-                // res.redirect("/");
             }
             else{
                 res.status(400).json({'Error':'Login Using Correct Credentials.'});
-                // res.redirect("/");
             }
 
         }

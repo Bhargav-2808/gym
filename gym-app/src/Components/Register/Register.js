@@ -1,12 +1,13 @@
 import React from "react";
 
 import "./Register.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import {registerUser} from './../../api';
+import {RegisterUser} from './../../api';
 
 function Register() {
+  let navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -15,14 +16,15 @@ function Register() {
   } = useForm();
 
   const onSubmit = async data =>{
-    console.log(data);
-    console.log(typeof(data));
-    await registerUser(data);
+    let response =await RegisterUser(data);
+    if (response){
+      navigate("/");
+    }
   }
 
   return (
     <div className="my-5">
-      <Container className="register d-flex">s
+      <Container className="register d-flex">
         <div className="box d-flex flex-column flex-md-row p-5 justify-content-center shadow">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="d-flex flex-column">
