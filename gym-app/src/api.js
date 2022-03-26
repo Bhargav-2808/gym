@@ -13,10 +13,21 @@ const loginCheck = async (user) =>{
 
 }
 
-const resetPassword = async (user) =>{
-    return await axios.post(`${url}/resetPassword`,user)
+const forgotPassword = async (user) =>{
+    return await axios.post(`${url}/forgotPassword`,user)
 
 }
 
 
-export {registerUser,loginCheck,resetPassword};
+// const getresetPassword = async (user) =>{
+//     return await axios.get(`${url}/getresetPassword`,user)
+
+// }
+
+// const resetPassword = async (user) =>{
+//     return await axios.post(`${url}/resetPassword`,user)
+
+// }
+
+
+export {registerUser,loginCheck,forgotPassword};

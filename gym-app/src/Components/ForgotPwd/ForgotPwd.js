@@ -2,15 +2,16 @@ import React from "react";
 import { Container, Button } from "react-bootstrap";
 import imagePath from "./../../images/Login.jpeg";
 import { useForm } from "react-hook-form";
-import { resetPassword } from "../../api";
+// import { forgotPassword } from "../../api";
 
 const ForgotPwd = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
-     await resetPassword(data);
+    //  await forgotPassword(data);
     //console.log(data);
   };
   return (
+    
     <div className="my-5">
       <Container className="register d-flex">
         <div className="box d-flex flex-column flex-md-row p-5 justify-content-center shadow">

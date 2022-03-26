@@ -16,7 +16,7 @@ exports.registerUser=async(req,res)=>{
     let cpass= req.body.cpassword;
     const user = req.body;
     console.log(user);
-    
+
     try {
         let userExist=await Users.findOne({email:uemail});
 
@@ -41,21 +41,21 @@ exports.registerUser=async(req,res)=>{
                 let addedUser = await newUser.save();
 
                 if(addedUser){
+                    res.redirect("/");
                     res.status(200).json({'Success':'User Added'})
-                    // res.redirect("/");
                 }
                 else{
                     res.status(500).json({'Error':'Internal Server Error'});
                     // res.redirect('/');
                 }
             }
-            
+
             else{
                 res.status(406).json({'Error':'Both Password must be same.'});
                 // res.redirect('/');
             }
         }
-        
+
     } catch (error) {
         res.status(500).json({"Error":"Internal Server Error"});
         console.log({error});
@@ -68,7 +68,7 @@ exports.loginCheck=async(req,res)=>{
 
     try {
         let user= await Users.findOne({email:email})
-    
+
         if(user){
             let comparePassword=await bcrypt.compare(password, user.password);
 
@@ -80,7 +80,7 @@ exports.loginCheck=async(req,res)=>{
                 res.status(400).json({'Error':'Login Using Correct Credentials.'});
                 // res.redirect("/");
             }
-    
+
         }
         else{
             res.status(400).json({'Error':'No User Found.'});
@@ -92,38 +92,73 @@ exports.loginCheck=async(req,res)=>{
 }
 
 
-const JWT_SECRET= 'some super secret..'
+// const JWT_SECRET= 'some super secret..'
 
-exports.resetPassword = async (req,res) =>{
-    const email =req.body.femail;
-    //console.log(email);
-        const  password = Users.find();
-       console.log(password);
-    try {
-        let user= await Users.findOne({email:email})
-        if(user){
-            
-        //create onetime link
-        
-        const secret= JWT_SECRET;
-            
-        }
-        else{
-            res.status(400).json({'Error':'Not registered Email'});
-        }
-    } catch (error) {
-        res.status(500).json({"Error":"Internal Server Error"});
-        console.log({error});
-    }
-}
+// exports.forgotPassword = async (req,res) =>{
+//     const email =req.body.femail;
+//     // console.log(email);
 
 
+//     try {
+//         let user= await Users.findOne({email:email})
+//         if(user){
 
-var transport = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
-    auth: {
-      user: "b60b4b7288b921",
-      pass: "89a162a2447a5f"
-    }
-  });
+//         //create onetime link
+//         const user1= await Users.find();
+//         const xuser = user1.map(data=>{
+//             return data.email;
+//         })
+
+//         //console.log(xuser[0]);
+//         const secret= JWT_SECRET+Math.random();
+//         //console.log(secret);
+//         const payload ={
+//             email: xuser[0]
+//         }
+
+//         const token = jwt.sign(payload,secret,{expiresIn:"15m"})
+//         const link = `http://localhost:4500/resetPassword/${token}`
+
+//         console.log(link);
+//         res.send("link has been sent");
+
+//         }
+//         else{
+//             res.status(400).json({'Error':'Not registered Email'});
+//         }
+//     } catch (error) {
+//         res.status(500).json({"Error":"Internal Server Error"});
+//         console.log({error});
+//     }
+// }
+
+
+
+
+
+// exports.sendEmail = async (email, subject, text) => {
+//     try {
+//         const transporter = nodemailer.createTransport({
+//             host: "smtp.mailtrap.io",
+//             port: 2525,
+//             auth: {
+//               user: "b60b4b7288b921",
+//               pass: "89a162a2447a5f"
+//             }
+//           });
+
+//         await transporter.sendMail({
+//             from: process.env.USER,
+//             to: email,
+//             subject: subject,
+//             text: text,
+//         });
+
+//         console.log("email sent sucessfully");
+//     } catch (error) {
+//         console.log(error, "email not sent");
+//     }
+// };
+
+// module.exports = sendEmail;
+

@@ -2,18 +2,24 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Chart from "react-google-charts";
 
-const Chart_ = () => {
-  const weight = 65;
-  const height=170;
-  let bmi = (weight / ((height * height)/ 10000)).toFixed(2);
 
-  const data = [
-    ["Index", "Number", { role: "style" }],
-    ["Weight(Kg)", weight, "blue"], // RGB value
-    ["Height(cm)", height, "violet"], // English color name
-    ["BMI", bmi, "green"],
-    // CSS-style declaration
-  ];
+
+const Chart_ = ({data_}) => {
+ 
+  console.log(data_)
+
+  //const {name,age,height,weight,task } = chartdata;
+  //const weight = 65;
+  //const height=170;
+  // let bmi = (weight / ((height * height)/ 10000)).toFixed(2);
+
+  // const data = [
+  //   ["Index", "Number", { role: "style" }],
+  //   ["Weight(Kg)", weight, "blue"], // RGB value
+  //   ["Height(cm)", height, "violet"], // English color name
+  //   ["BMI", bmi, "green"],
+  //   // CSS-style declaration
+  // ];
 
   return (
     <>
@@ -27,7 +33,7 @@ const Chart_ = () => {
           <Col>
             <Chart
               chartType="ColumnChart"
-              data={data}
+              //data={data}
               width={"100%"}
               height={"400px"}
             />
@@ -37,4 +43,5 @@ const Chart_ = () => {
     </>
   );
 };
+
 export default Chart_;

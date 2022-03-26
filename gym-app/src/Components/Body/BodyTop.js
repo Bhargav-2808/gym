@@ -5,6 +5,7 @@ import back2 from './../../images/back2.jpg'
 import './bodyTop.css'
 
 function BodyTop() {
+  // console.log(props);00
   return (
     <>
 

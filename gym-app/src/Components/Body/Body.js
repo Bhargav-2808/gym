@@ -6,7 +6,7 @@ import "./body.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import BodyTop from "./BodyTop";
-import Chart_ from "./Chart";
+import Chart_ from "./Chart_";
 import About from "../About/About";
 
 function Body() {
@@ -15,7 +15,7 @@ function Body() {
       <BodyTop/>
       <About/>
       <Pricing />
-      <Chart_ />
+      {/* <Chart_ /> */}
       
       
       {/* <Container fluid style={{}}>
