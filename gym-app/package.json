@@ -5,8 +5,8 @@
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.5.0",
-    "@mui/material": "^5.5.0",
+    "@mui/icons-material": "^5.5.1",
+    "@mui/material": "^5.5.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -15,11 +15,11 @@
     "chart.js": "^3.7.1",
     "nodemailer": "^6.7.3",
     "react": "^17.0.2",
-    "react-bootstrap": "^2.2.1",
+    "react-bootstrap": "^2.2.2",
     "react-chartjs-2": "^4.0.1",
     "react-dom": "^17.0.2",
     "react-google-charts": "^4.0.0",
-    "react-hook-form": "^7.28.0",
+    "react-hook-form": "^7.28.1",
     "react-pricing-table": "^0.3.0",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
@@ -52,7 +52,6 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
   "author": "",
   "license": "ISC"
 }
