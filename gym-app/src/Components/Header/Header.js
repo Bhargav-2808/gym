@@ -20,7 +20,6 @@ const Header = () => {
               <Link  to="/register"><Button className='regButton'>Register</Button></Link>
               <Link  to="/login"><Button className='supButton mx-2'>Login</Button></Link>
               <Link  to="/premium"><Button className='preButton'><img src={crown} width={20}  alt="crown" className="me-1"/>Premium</Button></Link>
-              
             </Nav>
           </Navbar.Collapse>
         </Container>

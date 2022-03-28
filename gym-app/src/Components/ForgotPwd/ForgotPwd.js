@@ -3,10 +3,14 @@ import { Container, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import imagePath from "./../../images/Login.jpeg";
 import { useForm } from "react-hook-form";
- import { ForgotPassword } from "../../api";
+import { ForgotPassword } from "../../api";
 
 const ForgotPwd = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const onSubmit = async (data) => {
     // let navigate = useNavigate();
     await ForgotPassword(data);
@@ -14,9 +18,8 @@ const ForgotPwd = () => {
     //   navigate("/");
     // }
     console.log(data);
-  };  
+  };
   return (
-    
     <div className="my-5">
       <Container className="register d-flex">
         <div className="box d-flex flex-column flex-md-row p-5 justify-content-center shadow">
@@ -30,8 +33,17 @@ const ForgotPwd = () => {
                 type="email"
                 name="femail"
                 placeholder="Email"
-                {...register("femail" ,  { required: true })}
+                {...register("femail", {
+                  required: true,
+                  pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                })}
               />
+              <span style={{ color: "red", fontSize: "12px" }}>
+                {errors.femail?.type === "required" && "Email is required"}{" "}
+              </span>
+              <span style={{ color: "red", fontSize: "12px" }}>
+                {errors.femail && "Enter email in valid formate"}
+              </span>
               <Button className="regButton mt-2" type="submit">
                 Verify Email
               </Button>

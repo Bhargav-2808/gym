@@ -18,10 +18,6 @@ const Premium = () => {
   }
    
 
-  
-
-  
-
   return (
     <div className="my-5">
       <Container className="register d-flex">
@@ -83,7 +79,7 @@ const Premium = () => {
         </div>
       </Container>
 
-      <Chart_ data_={cData} />
+      {/* <Chart_ data_={cData} /> */}
     </div>
   );
 };
