@@ -45,9 +45,8 @@ function ResetPwd() {
                 name="Npassword"
                 placeholder=" New Password"
                 {...register("Npassword", {
-                  required: true,
-                  pattern:
-                    /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$/,
+                  required: true,min:8
+                  
                 })}
               />
               <span style={{ color: "red", fontSize: "12px" }}>
@@ -56,7 +55,7 @@ function ResetPwd() {
               </span>{" "}
               <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.Npassword &&
-                  "Enter password in valid formate(min 8 char,atleast 1 uppercase,lowercase and digit, add special symbol)"}
+                  "Enter password in valid formate(min 8 char)"}
               </span>
               <button
                 className=" mt-2"

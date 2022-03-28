@@ -21,6 +21,7 @@ function Register() {
       navigate("/");
     }
   };
+   // pattern:   /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$/,
 
   return (
     <div className="my-5">
@@ -92,16 +93,16 @@ function Register() {
                 name="password"
                 placeholder="Password"
                 {...register("password", {
-                  required: true,
-                  pattern:
-                    /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$/,
+                  required: true,min:8
+                 
                 })}
               />
+             
               <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.password?.type === "required" && "Password is required"}</span>
                 <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.Npassword &&
-                  "Enter password in valid formate(min 8 char,atleast 1 uppercase,lowercase and digit, add special symbol)"}
+                  "Enter password in valid formate(min 8 char)"}
               </span>
               <input
                 className="my-2 p-1"
@@ -109,18 +110,17 @@ function Register() {
                 name="cpassword"
                 placeholder="Confirm Password"
                 {...register("cpassword", {
-                  required: true,
-                  pattern:
-                    /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$/,
+                  required: true,min:8
+               
                 })}
               />
               <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.cpassword?.type === "required"
                  &&
                   "Confirm Password is required"}</span>
-                   <span style={{ color: "red", fontSize: "12px"}} >
+                    <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.Npassword &&
-                  "Enter password in valid formate(min 8 char,atleast 1 uppercase,lowercase and digit, add special symbol)"}
+                  "Enter password in valid formate(min 8 char)"}
               </span>
               <Button className="regButton mt-2" type="submit">
                 Register
