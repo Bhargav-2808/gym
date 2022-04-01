@@ -54,6 +54,7 @@ exports.registerUser = async (req, res) => {
     console.log({ error });
   }
 };
+
 exports.loginCheck = async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
@@ -77,26 +78,7 @@ exports.loginCheck = async (req, res) => {
     console.log({ error });
   }
 };
-exports.getresetPassword = async (req, res) => {
-  //   const { id, token } = req.params;
-  //console.log(req.params)
-  //   try {
-  //     let userf = await Users.findOne({ email: email });
-  //     if (id !== userf._id) {
-  //         res.send("Invalid id ");
-  //         return;
-  //       }
-  //   } catch (error) {
-  //       res.send(error.message)
-  //     }
-  //   const secret = JWT_SECRET + userf.password;
-  //   try {
-  //     const payload = jwt.verify(token, secret);
-  //   } catch (error) {
-  //     res.status(500).json({ Error: "Internal Server Error" });
-  //     console.log(error.message);
-  //   }
-};
+
 
 exports.resetPassword = async (req, res) => {
   let email = req.body.pemail;

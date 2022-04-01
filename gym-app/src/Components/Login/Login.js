@@ -9,15 +9,24 @@ function Login() {
   const {
     register,
     handleSubmit,
-    formstate: { errors },
+    formState: { errors }
   } = useForm();
   const onSubmit = async (data) => {
     let response = await LoginCheck(data);
+    //console.log(response);
     if (response) {
       navigate("/");
+      sessionStorage.setItem("login",true)
+      //console.log(sessionStorage.getItem("login"))
+
+
+      // if(sessionStorage.getItem("login")===true){
+        
+      // }
+        
     }
   };
-
+  
   return (
     <div className="my-5">
       <Container className="register d-flex">

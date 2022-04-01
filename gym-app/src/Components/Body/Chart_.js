@@ -10,13 +10,15 @@ const Chart_ = ({data_}) => {
 
   const {name,age,height,weight,task } = data_;
   
-  let bmi = (weight / ((height * height)/ 10000)).toFixed(2);
+  //const We= JSON.parse(weight);
+  //const he= JSON.parse(height);
+  //let bmi = (We / ((he * he)/ 10000)).toFixed(2);
 
   const data = [
     ["Index", "Number", { role: "style" }],
-    ["Weight(Kg)", JSON.parse(weight), "blue"], // RGB value
-    ["Height(cm)", JSON.parse(height), "violet"], // English color name
-    ["BMI", bmi, "green"],
+    ["Weight(Kg)", 20, "blue"], // RGB value
+    ["Height(cm)", 21, "violet"], // English color name
+    ["BMI", 30, "green"],
     // CSS-style declaration
   ];
 
