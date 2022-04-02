@@ -1,11 +1,18 @@
 import { Button } from "bootstrap";
-import React from "react";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { resetPassword } from "../../api";
 
 function ResetPwd() {
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
+
   const { id, token } = useParams();
   const {
     register,
@@ -27,7 +34,7 @@ function ResetPwd() {
                 className="my-2 p-1"
                 type="email"
                 name="pemail"
-                placeholder="Reenter your email"
+                placeholder="Renter your email"
                 {...register("pemail", {
                   required: true,
                   pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
@@ -39,16 +46,22 @@ function ResetPwd() {
               <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.pemail?.type === "required" && "Email is required"}
               </span>
-              <input
-                className="my-2 p-1"
-                type="password"
-                name="Npassword"
-                placeholder=" New Password"
-                {...register("Npassword", {
-                  required: true,min:8
-                  
-                })}
-              />
+              <div className="_pwd">
+                <input
+                  className="my-2 p-1 input-pwd"
+                  type={passwordShown ? "text" : "password"}
+                  name="Npassword"
+                  placeholder="Password"
+                  {...register("password", {
+                    required: true,
+                    min: 8,
+                  })}
+                />
+                <button className="eye">
+                  <RemoveRedEyeIcon onMouseOver={togglePassword}/>
+                </button>
+              </div>
+
               <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.Npassword?.type === "required" &&
                   "Password is required"}

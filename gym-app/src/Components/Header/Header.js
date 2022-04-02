@@ -38,12 +38,17 @@ const Header = () => {
   const logout = () => {
     //sessionStorage.clear();
     sessionStorage.setItem("login", false);
+    window.location.reload(false);
     //console.log( sessionStorage.setItem("login",false));
   };
-  useEffect( () =>{
 
-    logout();
-  },[])
+
+
+
+  // useEffect( () =>{
+
+  //   logout();
+  // },[])
 
   
   return (
@@ -77,7 +82,7 @@ const Header = () => {
               Log Out
             </Button>
             <Link to="/login">
-              <Button className= {`supButton  mx-2 ${sessionStorage.getItem("login")==="true"?'d-none':'' } ${sessionStorage.getItem("login")==="false"?'':'d-none' }`}>Login</Button>
+              <Button    className= {`supButton  mx-2 ${sessionStorage.getItem("login")==="true"?'d-none':'' } ${sessionStorage.getItem("login")==="false"?'':'d-none' }`}>Login</Button>
             </Link>
             <Link to="/premium">
               <Button className={`preButton mx-2 ${sessionStorage.getItem("login")==="true"?'':'d-none' } ${sessionStorage.getItem("login")==="false"?'d-none':'' }`}>
