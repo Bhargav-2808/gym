@@ -5,6 +5,7 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import crown from "./../../images/Crown.png";
 
 const Header = () => {
+  //console.log(sessionStorage.getItem("login")==null);
   // let logbutton;
   //let prebutton;
   
@@ -68,7 +69,10 @@ const Header = () => {
             <a href='/login'><Button className='supButton mx-2'>Login</Button></a>
               <a href='/premium'><Button className='preButton'><i className="fas fa-crown me-2"></i>Premium</Button></a> */}
             <Link to="/">
-              <Button className="preButton me-2">Home</Button>
+              <Button className="preButton me-3">Home</Button>
+            </Link>
+            <Link to="/class">
+              <Button className="preButton me-2">Class</Button>
             </Link>
             {
               //   (sessionStorage.getItem("login")===true)?( <Button className="supButton mx-2" onClick={logout}>Log Out</Button>):<Link to="/login">
@@ -81,9 +85,14 @@ const Header = () => {
             <Button className={` supButton mx-2 ${sessionStorage.getItem("login")==="true"?'':'d-none' } ${sessionStorage.getItem("login")==="false"?'d-none':'' } `} onClick={logout}>
               Log Out
             </Button>
-            <Link to="/login">
-              <Button    className= {`supButton  mx-2 ${sessionStorage.getItem("login")==="true"?'d-none':'' } ${sessionStorage.getItem("login")==="false"?'':'d-none' }`}>Login</Button>
-            </Link>
+
+            {
+              (sessionStorage.getItem("login")==null || sessionStorage.getItem("login")=="false")?( <Link to="/login">
+              <Button  className= {`supButton  mx-2 ${sessionStorage.getItem("login")==="true"?'d-none':'' }  ${sessionStorage.getItem("login")==="false"?'':'d-none' }`}>Login</Button>
+            </Link>):<></>
+            }
+
+      
             <Link to="/premium">
               <Button className={`preButton mx-2 ${sessionStorage.getItem("login")==="true"?'':'d-none' } ${sessionStorage.getItem("login")==="false"?'d-none':'' }`}>
                 <img src={crown} width={20} alt="crown" className="me-1" />
