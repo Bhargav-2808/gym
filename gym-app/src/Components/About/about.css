@@ -2,12 +2,13 @@
     text-align: justify;
 }
 img.vert-move {
-    -webkit-animation: mover 1s infinite  alternate;
-    animation: mover 1s infinite  alternate;
+    -webkit-animation: mover 1s infinite  alternate !important;
+    animation: mover 1s infinite  alternate !important;
+    margin-top: 4rem;
 }
 img.vert-move {
-    -webkit-animation: mover 1s infinite  alternate;
-    animation: mover 1s infinite  alternate;
+    -webkit-animation: mover 1s infinite  alternate !important;
+    animation: mover 1s infinite  alternate !important;
 }
 @-webkit-keyframes mover {
     0% { transform: translateY(0); }

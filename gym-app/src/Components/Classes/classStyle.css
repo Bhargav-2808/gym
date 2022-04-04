@@ -8,7 +8,7 @@
   
   .timeline-container h2 {
     font-family: "Pacifico", cursive;
-    font-size: 32px;
+    font-size: 22px;
     margin: 0;
     color: #00272b;
    
@@ -68,7 +68,12 @@
 
 }
 img{
-    height: 200px;
-    width: 200px;
+    max-height: 250px;
+    max-width: 250px;
     box-shadow: 10px 10px 10px  rgb(77, 77, 77);
+}
+
+p{
+    text-align: justify;
+
 }
