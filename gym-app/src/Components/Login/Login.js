@@ -9,7 +9,7 @@ function Login() {
   const {
     register,
     handleSubmit,
-    formstate: { errors },
+    formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
     let response = await LoginCheck(data);
