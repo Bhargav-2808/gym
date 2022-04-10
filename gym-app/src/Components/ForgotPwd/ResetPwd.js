@@ -52,7 +52,7 @@ function ResetPwd() {
                   type={passwordShown ? "text" : "password"}
                   name="Npassword"
                   placeholder="Password"
-                  {...register("password", {
+                  {...register("Npassword", {
                     required: true,
                     min: 8,
                   })}

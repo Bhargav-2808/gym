@@ -18,7 +18,8 @@ exports.registerUser = async (req, res) => {
   let pass = req.body.password;
   let cpass = req.body.cpassword;
   //const user = req.body;
-  //console.log(user);
+  // console.log(pass);
+  // console.log(cpass);
 
   try {
     let userExist = await Users.findOne({ email: uemail });
@@ -84,7 +85,7 @@ exports.resetPassword = async (req, res) => {
   let email = req.body.pemail;
   //console.log(email);
   let Npassword = req.body.Npassword;
-  //   console.log(Npassword);
+    // console.log(Npassword);
   const { id, token } = req.params;
 
   try {
@@ -108,9 +109,11 @@ exports.resetPassword = async (req, res) => {
     const secret = JWT_SECRET + userf.password;
     const payload = jwt.verify(token, secret);
     //console.log(payload);
-    userf.password = Npassword;
-    await userf.save();
+
+     userf.password = Npassword;
+     await userf.save();
     res.send(userf);
+    console.log(userf);
   } catch (error) {
     //res.status(500).json({ Error: "Internal Server Error" });
     console.log(error);

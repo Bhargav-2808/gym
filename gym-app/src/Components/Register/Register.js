@@ -20,6 +20,7 @@ function Register() {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     let response = await RegisterUser(data);
     if (response) {
       navigate("/");
@@ -61,6 +62,8 @@ function Register() {
                    <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.lastname && "Last Name should have atleast 3 char"}
               </span>
+              
+              
               <input
                 className="my-2 p-1"
                 type="text"
@@ -91,6 +94,8 @@ function Register() {
                 <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.Npassword && "Enter email in valid formate"}
               </span>
+              
+              
               <div className="_pwd">
                 <input
                   className="my-2 p-1 input-pwd"
@@ -113,13 +118,15 @@ function Register() {
                 {errors.Npassword &&
                   "Enter password in valid formate(min 8 char)"}
               </span>
+              
+              
               <div className="_pwd">
                 <input
                   className="my-2 p-1 input-pwd"
                   type={passwordShown ? "text" : "password"}
                   name="cpassword"
                   placeholder="Password"
-                  {...register("password", {
+                  {...register("cpassword", {
                     required: true,
                     min: 8,
                   })}
@@ -133,9 +140,10 @@ function Register() {
                  &&
                   "Confirm Password is required"}</span>
                     <span style={{ color: "red", fontSize: "12px" }}>
-                {errors.Npassword &&
+                {errors.cpassword &&
                   "Enter password in valid formate(min 8 char)"}
               </span>
+              
               <Button className="regButton mt-2" type="submit">
                 Register
               </Button>

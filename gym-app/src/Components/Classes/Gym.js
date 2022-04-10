@@ -20,12 +20,15 @@ function Gym() {
           </Col>
         </Row>
         <Row className="d-flex justify-content-center">
-          <Col xl={8}>
+          <Col xl={10}>
             <div className="timeline-container">
               <div className="event">
                 <div className="event-date me-3">Sunday</div>
                 <h2>Day 1 Chest</h2>
                 <Row className="mt-3">
+                  <Col className="d-flex justify-content-center">
+                    <img className="img-style" src={chest} alt="gym" />
+                  </Col>
                   <Col>
                     <ul>
                       <li>Flat bench barbell press – 4 sets of 8 – 12 reps</li>
@@ -33,9 +36,6 @@ function Gym() {
                       <li>Incline dumbbell flyes – 3 sets of 10 rep</li>
                       <li>Push-ups – 4 sets of 20 rep</li>
                     </ul>
-                  </Col>
-                  <Col>
-                    <img src={chest} alt="gym" />
                   </Col>
                 </Row>
               </div>
@@ -59,8 +59,8 @@ function Gym() {
                       <li>Rear deltoid flyes – 3 sets of 15 rep</li>
                     </ul>
                   </Col>
-                  <Col>
-                    <img src={shoulder} alt="gym" />
+                  <Col className="d-flex justify-content-center">
+                    <img className="img-style" src={shoulder} alt="gym" />
                   </Col>
                 </Row>
               </div>
@@ -69,6 +69,9 @@ function Gym() {
                 <div className="event-date">Tuesday</div>
                 <h2>Day 3 Legs</h2>
                 <Row className="mt-3">
+                  <Col className="d-flex justify-content-center">
+                    <img className="img-style" src={legs} alt="gym" />
+                  </Col>
                   <Col>
                     <ul>
                       <li>Barbell squats – 4 sets of 8 – 10 reps</li>
@@ -76,9 +79,6 @@ function Gym() {
                       <li>Leg press machine – 3 sets of 10 reps</li>
                       <li>Hamstring curls – 3 sets of 10 reps</li>
                     </ul>
-                  </Col>
-                  <Col>
-                    <img src={legs} alt="gym" />
                   </Col>
                 </Row>
               </div>
@@ -95,8 +95,8 @@ function Gym() {
                       <li>Barbell bent over rows – 4 sets of 8 reps</li>
                     </ul>
                   </Col>
-                  <Col>
-                    <img src={abs} alt="gym" />
+                  <Col className="d-flex justify-content-center">
+                    <img className="img-style" src={abs} alt="gym" />
                   </Col>
                 </Row>
               </div>
@@ -104,6 +104,9 @@ function Gym() {
                 <div className="event-date">Thursday</div>
                 <h2>Day 5 Arms (biceps, triceps</h2>
                 <Row className="mt-3">
+                  <Col className="d-flex justify-content-center">
+                    <img className="img-style" src={arms} alt="gym" />
+                  </Col>
                   <Col>
                     <ul>
                       <li>Double arm dumbbell curls = 4 sets 10 – 12 reps</li>
@@ -111,9 +114,6 @@ function Gym() {
                       <li>Preacher curl machine – 4 sets of 12 reps</li>
                       <li>Skull crushers – 4 sets of 10 reps</li>
                     </ul>
-                  </Col>
-                  <Col>
-                    <img src={arms} alt="gym" />
                   </Col>
                 </Row>
               </div>
