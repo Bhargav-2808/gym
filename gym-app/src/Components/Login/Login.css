@@ -1,0 +1,15 @@
+._pwd {
+  display: flex;
+  flex-direction: row;
+}
+
+.eye {
+  height: 35.8px;
+  text-decoration: none;
+  margin-top: 8px;
+  border: 0;
+  background: white;
+}
+.input-pwd {
+  max-width: 30rem !important;
+}

@@ -9,11 +9,13 @@ import BodyTop from "./BodyTop";
 import Chart_ from "./Chart_";
 import About from "../About/About";
 
+
 function Body() {
   return (
     <>
       <BodyTop/>
       <About/>
+  
       <Pricing />
       {/* <Chart_ /> */}
       

@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState } from "react";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
@@ -7,6 +7,10 @@ import { useForm } from "react-hook-form";
 import { RegisterUser } from "./../../api";
 
 function Register() {
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
   let navigate = useNavigate();
   const {
     register,
@@ -87,16 +91,21 @@ function Register() {
                 <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.Npassword && "Enter email in valid formate"}
               </span>
-              <input
-                className="my-2 p-1"
-                type="password"
-                name="password"
-                placeholder="Password"
-                {...register("password", {
-                  required: true,min:8
-                 
-                })}
-              />
+              <div className="_pwd">
+                <input
+                  className="my-2 p-1 input-pwd"
+                  type={passwordShown ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  {...register("password", {
+                    required: true,
+                    min: 8,
+                  })}
+                />
+                <button className="eye">
+                  <RemoveRedEyeIcon onMouseOver={togglePassword}/>
+                </button>
+              </div>
              
               <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.password?.type === "required" && "Password is required"}</span>
@@ -104,16 +113,21 @@ function Register() {
                 {errors.Npassword &&
                   "Enter password in valid formate(min 8 char)"}
               </span>
-              <input
-                className="my-2 p-1"
-                type="password"
-                name="cpassword"
-                placeholder="Confirm Password"
-                {...register("cpassword", {
-                  required: true,min:8
-               
-                })}
-              />
+              <div className="_pwd">
+                <input
+                  className="my-2 p-1 input-pwd"
+                  type={passwordShown ? "text" : "password"}
+                  name="cpassword"
+                  placeholder="Password"
+                  {...register("password", {
+                    required: true,
+                    min: 8,
+                  })}
+                />
+                <button className="eye">
+                  <RemoveRedEyeIcon onMouseOver={togglePassword}/>
+                </button>
+              </div>
               <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.cpassword?.type === "required"
                  &&

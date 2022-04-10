@@ -79,7 +79,7 @@ const Premium = () => {
         </div>
       </Container>
 
-      {/* <Chart_ data_={cData} /> */}
+      <Chart_ data_={cData} />
     </div>
   );
 };
