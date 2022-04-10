@@ -118,7 +118,7 @@ function Gym() {
                 </Row>
               </div>
               <div className="event">
-                <div className="event-date">saturday</div>
+                <div className="event-date">friday</div>
                 <h2>Rest</h2>
                 <div className="timeline-content">
                   <p>

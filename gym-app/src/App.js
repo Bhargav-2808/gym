@@ -28,7 +28,7 @@ function App() {
           <Route exact path='/' element={<Body/>}/>
           <Route exact path="/register" element={<Register />}/>
           <Route exact path="/login" element={<Login />}/>
-          <Route exact path="/class" element={<Class />}/>
+          <Route exact path="/class" element={<Gym />}/>
           <Route exact path="/forgotpassword" element={<ForgotPwd/>}/>
           <Route exact path="/premium" element={<Premium />}/>
           <Route exact path="/resetpassword/:id/:token" element={<ResetPwd />}/>
