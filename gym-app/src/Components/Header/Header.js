@@ -61,7 +61,7 @@ const Header = () => {
     <Navbar
       expand="lg"
       className="headerNav py-2"
-      style={{ margin: "0", padding: "0", height: "13vh" }}
+      style={{ margin: "0", padding: "0", height: "10vh" }}
     >
       <Container fluid>
         {/* <Navbar.Brand href="#home" style={{ color: "white" }}>

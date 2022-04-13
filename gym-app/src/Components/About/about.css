@@ -4,7 +4,7 @@
 img.vert-move {
     -webkit-animation: mover 1s infinite  alternate !important;
     animation: mover 1s infinite  alternate !important;
-    margin-top: 4rem;
+    margin-top: 1rem;
 }
 img.vert-move {
     -webkit-animation: mover 1s infinite  alternate !important;

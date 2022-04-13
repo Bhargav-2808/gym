@@ -17,6 +17,7 @@ import Cardio from './Components/Classes/Cardio';
 import Zumba from './Components/Classes/Zumba';
 
 
+
 function App() {
   // useEffect( ()=>{
   //   sessionStorage.setItem("login",true);
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/class/yoga" element={<Yoga />}/>
           <Route exact path="/class/cardio" element={<Cardio />}/>
           <Route exact path="/class/zumba" element={<Zumba />}/>
+          
 
         </Routes>
       <Footer/>
