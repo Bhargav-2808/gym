@@ -8,8 +8,10 @@
   text-decoration: none;
   margin-top: 8px;
   border: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
   background: white;
 }
 .input-pwd {
-  max-width: 30rem !important;
+  max-width: 40.45rem !important;
 }
