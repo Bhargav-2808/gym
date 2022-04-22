@@ -22,6 +22,7 @@ function Class() {
               <Button className="preButton me-2">Cardio</Button>
             </Link>
           </Col>
+          <hr className="mt-3"/>
         </Row>
       </Container>
     </>

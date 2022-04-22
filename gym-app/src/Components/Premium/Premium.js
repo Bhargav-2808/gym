@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Button } from "react-bootstrap";
-import imagePath from "./../../images/Login.jpeg";
+import bmi from "./../../images/bmi.png";
 import { useForm } from "react-hook-form";
 import Chart_ from "../Body/Chart_";
 
@@ -24,26 +24,11 @@ const Premium = () => {
         <div className="box d-flex flex-column flex-md-row p-5 justify-content-center shadow">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="d-flex flex-column">
-              <h1>Calculate Diet</h1>
+              <h1>Get your BMI</h1>
+              
               <input
                 className="my-2 p-1"
-                type="text"
-                name="name"
-                placeholder="Name"
-                
-                {...register("name" ,  { required: true })}
-              />
-              <input
-                className="my-2 p-1"
-                type="text"
-                name="age"
-                placeholder="Age"
-                
-                {...register("age" ,  { required: true })}
-              />
-              <input
-                className="my-2 p-1"
-                type="text"
+                type="number"
                 name="height"
                 placeholder="Height(cm)"
                 
@@ -51,7 +36,7 @@ const Premium = () => {
               />
               <input
                 className="my-2 p-1"
-                type="text"
+                type="number"
                 name="weight"
                 placeholder="Weight(kg)"
                 {...register("weight" ,  { required: true })}
@@ -72,8 +57,9 @@ const Premium = () => {
           <div>
             <img
               className="img-fluid h-100 ps-5"
-              src={imagePath}
+              src={bmi}
               alt="LoginImg"
+              style={{width:"27rem"}}
             />
           </div>
         </div>
