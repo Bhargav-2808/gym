@@ -112,11 +112,12 @@ exports.resetPassword = async (req, res) => {
 
      userf.password = Npassword;
      await userf.save();
-    res.send(userf);
+    res.send("Your password has been changed");
     console.log(userf);
   } catch (error) {
     //res.status(500).json({ Error: "Internal Server Error" });
-    console.log(error);
+    // console.log(error);
+    res.send(error,"Server error occured")
   }
   //console.log(Npassword)
 };
@@ -168,14 +169,19 @@ exports.ForgotPassword = async (req, res) => {
 
         console.log("email sent sucessfully");
       } catch (error) {
-        console.log(error, "email not sent");
+        //console.log(error, "email not sent");
+        res.send(error,"Server error occured");
       }
-      res.send("link has been sent");
+      res.send("Reset password link has been send to mail");
     } else {
-      res.status(400).json({ Error: "Not registered Email" });
+      res.send("Not registered Email");
+      //res.status(400).json({ Error: "Not registered Email" });
     }
   } catch (error) {
-    res.status(500).json({ Error: "Internal Server Error" });
+    //res.status(500).json({ Error: "Internal Server Error" });
     console.log({ error });
+    res.send(error,"Server error occured");
+
+
   }
 };

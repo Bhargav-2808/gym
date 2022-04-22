@@ -1,13 +1,21 @@
-import { Button } from "bootstrap";
+import { Button } from "react-bootstrap";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { resetPassword } from "../../api";
 
 function ResetPwd() {
   const [passwordShown, setPasswordShown] = useState(false);
+  const [show, setShow] = useState(false);
+  const [msg, setMsg] = useState("");
+  let navigate = useNavigate();
+
+  //console.log(msg);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
@@ -20,11 +28,26 @@ function ResetPwd() {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    await resetPassword(id, token, data);
+    const response= await resetPassword(id, token, data);
     //  console.log(data);
+    if(response){
+      handleShow();
+      setMsg(response?.data);
+      navigate("/login");
+    }
   };
   return (
     <>
+     <Modal show={show} onHide={handleClose}>
+       
+       <Modal.Body>{msg}</Modal.Body>
+       <Modal.Footer>
+         <Button variant="secondary" onClick={handleClose}>
+           Close
+         </Button>
+        
+       </Modal.Footer>
+     </Modal>
       <Container className="register d-flex mt-5 mb-5 ">
         <div className="box d-flex flex-column flex-md-row p-5 justify-content-center shadow">
           <form onSubmit={handleSubmit(onSubmit)}>

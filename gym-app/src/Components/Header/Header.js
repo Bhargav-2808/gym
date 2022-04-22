@@ -87,16 +87,7 @@ const Header = () => {
 
             {/* {logbutton} */}
             {/* {prebutton}  */}
-            <Button
-              className={` headerbutton mx-2 ${
-                sessionStorage.getItem("login") === "true" ? "" : "d-none"
-              } ${
-                sessionStorage.getItem("login") === "false" ? "d-none" : ""
-              } `}
-              onClick={logout}
-            >
-              Log Out
-            </Button>
+ 
             {log}
             {sessionStorage.getItem("login") == "null" ||
             sessionStorage.getItem("login") == "false" ? (
@@ -127,6 +118,17 @@ const Header = () => {
                 Premium
               </Button>
             </Link>
+
+            <Button
+              className={` headerbutton mx-2 ${
+                sessionStorage.getItem("login") === "true" ? "" : "d-none"
+              } ${
+                sessionStorage.getItem("login") === "false" ? "d-none" : ""
+              } `}
+              onClick={logout}
+            >
+              Log Out
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
