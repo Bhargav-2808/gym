@@ -154,13 +154,13 @@ exports.ForgotPassword = async (req, res) => {
           port: 587,
           secure: false,
           auth: {
-            user: "bhargavvalani06@gmail.com",
-            pass: "@@bhargav@@",
+            user: "axupatel1507@gmail.com",
+            pass: "akshat123",
           },
         });
 
         await transporter.sendMail({
-          from: '"Reset password" bhargavvalani06@gmail.com',
+          from: '"Reset password" axupatel1507@gmail.com',
           to: userf.email,
           subject: "Reset Password",
           text: link,
