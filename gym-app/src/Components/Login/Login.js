@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -8,12 +8,12 @@ import "./Login.css";
 import Body from "../Body/Body";
 
 function Login() {
+  let navigate = useNavigate();
+
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
-
-  let navigate = useNavigate();
 
   const {
     register,
@@ -21,23 +21,43 @@ function Login() {
     formState: { errors },
   } = useForm();
 
-  //console.log(window.location.pathname);
+  useEffect(() => {
+    if (sessionStorage.getItem("login") === "true") {
+      navigate("/");
+    }
+  });useEffect(() => {
+    if (sessionStorage.getItem("admin") === "true") {
+      navigate("/admin");
+    }
+  });
 
   const onSubmit = async (data) => {
     let response = await LoginCheck(data);
-
     if (response) {
-      navigate("/");
-
       sessionStorage.setItem("login", true);
-
-      window.location.reload(false);
+      navigate("/");
     }
+
+
+    if (
+      response?.data?.user?.password === "admin@123" &&
+      response?.data?.user?.email === "admin@gmail.com"
+    ) {
+      sessionStorage.setItem("admin", true);
+      navigate("/admin");
+    }
+
+    // if (
+    //   response?.data?.user?.password === "admin@123" &&
+    //   response?.data?.user?.email === "admin@gmail.com"
+    // ) {
+    //   localStorage.setItem("admin", true);
+    // }
+    // // console.log(response);
+   
+
+    window.location.reload(false);
   };
-  if (sessionStorage.getItem("login") == "true") {
-    //navigate("/");
-    if (window.location.pathname === "/login") return <Body />;
-  }
   return (
     <div className="my-5">
       <Container className="register d-flex">

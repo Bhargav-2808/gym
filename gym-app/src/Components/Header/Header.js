@@ -47,6 +47,7 @@ const Header = () => {
   const logout = () => {
     //sessionStorage.clear();
     sessionStorage.setItem("login", false);
+    sessionStorage.setItem("admin", false);
     window.location.reload(false);
     //console.log( sessionStorage.setItem("login",false));
     nav("/");

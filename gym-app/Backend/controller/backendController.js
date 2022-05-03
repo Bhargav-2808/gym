@@ -1,13 +1,15 @@
-const Users = require("../model/user");
-const nodemailer = require("nodemailer");
+
+import Users from '../model/user.js';
+import nodemailer from 'nodemailer';
 // const bcrypt = require('bcryptjs');
-const jwt = require("jsonwebtoken");
-const mongoose = require("mongoose");
-const user = require("../model/user");
+import jwt from 'jsonwebtoken'
+import mongoose from 'mongoose'
 
-sendEmail = async (email, text) => {};
 
-exports.registerUser = async (req, res) => {
+
+const sendEmail = async (email, text) => {};
+
+ const  registerUser = async (req, res) => {
   let fname = req.body.firstName;
   let lname = req.body.lastName;
   let uname = fname + " " + lname;
@@ -56,7 +58,7 @@ exports.registerUser = async (req, res) => {
   }
 };
 
-exports.loginCheck = async (req, res) => {
+ const loginCheck = async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
 
@@ -67,7 +69,8 @@ exports.loginCheck = async (req, res) => {
       //let comparePassword=await bcrypt.compare(password, user.password);
 
       if (password === userf.password) {
-        res.status(200).json({ Success: "Login Successfull." });
+        // res.send(userf,"Login successful");
+        res.status(200).json({ Success: "Login Successfull.", user: userf });
       } else {
         res.status(400).json({ Error: "Login Using Correct Credentials." });
       }
@@ -80,12 +83,11 @@ exports.loginCheck = async (req, res) => {
   }
 };
 
-
-exports.resetPassword = async (req, res) => {
+ const resetPassword = async (req, res) => {
   let email = req.body.pemail;
   //console.log(email);
   let Npassword = req.body.Npassword;
-    // console.log(Npassword);
+  // console.log(Npassword);
   const { id, token } = req.params;
 
   try {
@@ -110,21 +112,21 @@ exports.resetPassword = async (req, res) => {
     const payload = jwt.verify(token, secret);
     //console.log(payload);
 
-     userf.password = Npassword;
-     await userf.save();
+    userf.password = Npassword;
+    await userf.save();
     res.send("Your password has been changed");
     console.log(userf);
   } catch (error) {
     //res.status(500).json({ Error: "Internal Server Error" });
     // console.log(error);
-    res.send(error,"Server error occured")
+    res.send(error, "Server error occured");
   }
   //console.log(Npassword)
 };
 
 const JWT_SECRET = "some super secret..";
 
-exports.ForgotPassword = async (req, res) => {
+ const  ForgotPassword = async (req, res) => {
   //console.log(email);
 
   try {
@@ -170,7 +172,7 @@ exports.ForgotPassword = async (req, res) => {
         console.log("email sent sucessfully");
       } catch (error) {
         //console.log(error, "email not sent");
-        res.send(error,"Server error occured");
+        res.send(error, "Server error occured");
       }
       res.send("Reset password link has been send to mail");
     } else {
@@ -180,8 +182,42 @@ exports.ForgotPassword = async (req, res) => {
   } catch (error) {
     //res.status(500).json({ Error: "Internal Server Error" });
     console.log({ error });
-    res.send(error,"Server error occured");
-
-
+    res.send(error, "Server error occured");
   }
 };
+
+ const getusers = async (request, response) => {
+  const users = await Users.find();
+  try {
+    response.status(200).json(users);
+  } catch (e) {
+    response.status(409).json({ message: e.message });
+  }
+};
+
+ const getUserById = async (request, response) => {
+  try {
+    const user = await Users.findById(request.params.id);
+    response.status(200).json(user);
+  } catch (error) {
+    response.status(404).json({ message: error.message });
+  }
+};
+
+ const editUser = async (request, response) => {
+
+  Users.updateOne({ _id: request.params.id }, request.body).then((result) => {
+    response.status(200).json({ message: "Update successful!" });
+  });
+};
+
+ const deleteusers = async (request, response) => {
+  try {
+    await Users.deleteOne({ _id: request.params.id });
+    response.status(201).json("User deleted Successfully");
+  } catch (error) {
+    response.status(409).json({ message: error.message });
+  }
+};
+
+export {ForgotPassword,registerUser,loginCheck,getUserById,getusers,deleteusers,editUser,resetPassword}

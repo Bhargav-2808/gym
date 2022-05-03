@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.admin-header{
+    background-color: black;
+}
+
+.admin-header h3{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.4rem;
+    
+    padding: 0.8rem;
+    display:flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.updateLink{
+    background-color: white!important;
+    color: black!important;
+    text-decoration: none;
+    border-color: black!important;
+  
+}
+.deleteLink{
+    margin-left:1.5rem ;
+    cursor: pointer;
+}
+

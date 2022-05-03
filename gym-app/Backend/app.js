@@ -1,8 +1,9 @@
-const express = require("express");
-const cros = require('cors');
-const router = require('./routes/router');
-const bodyParser=require('body-parser');
-const database = require('./database/database');
+import express from 'express';
+import cros from 'cors';
+import router from './routes/router.js';
+import bodyParser from 'body-parser';
+import database from './database/database.js';
+
 const app = express();
 
 app.use(cros());

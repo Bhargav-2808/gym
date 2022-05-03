@@ -1,10 +1,16 @@
-const express = require('express');
-const backendController = require('../controller/backendController');
+import express from 'express';
+import { registerUser, loginCheck, ForgotPassword, resetPassword, getUserById, editUser, deleteusers, getusers } from '../controller/backendController.js';
+
 const route = express.Router();
 
-route.post("/registerUser",backendController.registerUser);
-route.post("/loginCheck",backendController.loginCheck);
-route.post("/ForgotPassword",backendController.ForgotPassword);
-route.post("/resetPassword/:id/:token",backendController.resetPassword);
-// route.get("/getresetPassword/:id/:token",backendController.getresetPassword);
-module.exports=route;
+route.post("/registerUser",registerUser);
+route.post("/loginCheck",loginCheck);
+route.post("/ForgotPassword",ForgotPassword);
+route.post("/resetPassword/:id/:token",resetPassword);
+route.get('/:id',getUserById);
+route.put("/:id",editUser)
+route.delete("/:id",deleteusers)
+route.get("/", getusers)
+// route.get("/getresetPassword/:id/:token",getresetPassword);
+
+export default route;

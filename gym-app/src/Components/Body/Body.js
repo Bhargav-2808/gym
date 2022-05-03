@@ -11,6 +11,8 @@ import About from "../About/About";
 
 
 function Body() {
+  let admin= localStorage.getItem("admin");
+  console.log(typeof(admin));
   return (
     <>
       <BodyTop/>
