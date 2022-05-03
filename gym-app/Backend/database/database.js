@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-
 //const URL='mongodb+srv://gym123:gym123@gymdata.yjsro.mongodb.net/gymdata?retryWrites=true&w=majority'
 const URL='mongodb+srv://akshat:akshat123@akshat.rtjdm.mongodb.net/akshat?retryWrites=true&w=majority'
 
@@ -13,4 +12,6 @@ const connection =mongoose.connect(URL,
     console.log(err+'Something Went Wrong');
 })
 
-export default connection
+
+export default connection;
+
