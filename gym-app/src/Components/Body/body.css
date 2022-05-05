@@ -1,46 +1,79 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.back{
-    /* background-image: url("./../../images/body.jpg"); */
-    background-size:cover;
-    object-fit: cover;
-    width: 100%;
-    height: 90vh;
-    background-position: center center;
-    background-repeat: no-repeat;
-    
+.back {
+  /* background-image: url("./../../images/body.jpg"); */
+  background-size: cover;
+  object-fit: cover;
+  width: 100%;
+  height: 90vh;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 /* pricing */
 .rounded-lg {
-    border-radius: 1rem !important;
-  }
-  
-  .text-small {
-    font-size: 0.9rem !important;
-  }
-  
-  .custom-separator {
-    width: 5rem;
-    height: 6px;
-    border-radius: 1rem;
-  }
-  
-  .text-uppercase {
-    letter-spacing: 0.2em;
-  }
+  border-radius: 1rem !important;
+}
 
-  .meal{
-    box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-  }
-  .meal:hover{
-    box-shadow: 7px 15px 16px 3px rgba(0, 0, 0, 0.1);
-  }
+.text-small {
+  font-size: 0.9rem !important;
+}
 
-  .meal-header{
-    color: #1b4a84;
-  }
+.custom-separator {
+  width: 5rem;
+  height: 6px;
+  border-radius: 1rem;
+}
+
+.text-uppercase {
+  letter-spacing: 0.2em;
+}
+
+.meal {
+  box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.meal:hover {
+  box-shadow: 7px 15px 16px 3px rgba(0, 0, 0, 0.1);
+}
+
+.meal-header {
+  color: #1b4a84;
+}
+.pdfDownload {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.pay-card {
+  box-shadow: 10px 20px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.join-button-1 {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+.join-button-1 :hover {
+  text-decoration: none !important;
+}
+
+.join-button-2 :hover {
+  text-decoration: none !important;
+}
+.join-button-2 {
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 10px;
+}

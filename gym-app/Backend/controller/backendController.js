@@ -1,39 +1,37 @@
-
-import Users from '../model/user.js';
-import nodemailer from 'nodemailer';
+import { Users, Feedback } from "../model/user.js";
+import nodemailer from "nodemailer";
 // const bcrypt = require('bcryptjs');
-import jwt from 'jsonwebtoken'
-import mongoose from 'mongoose'
-
-
+import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
+import { ReportGmailerrorred } from "@mui/icons-material";
 
 const sendEmail = async (email, text) => {};
 
- const  registerUser = async (req, res) => {
-  let fname = req.body.firstName;
-  let lname = req.body.lastName;
-  let uname = fname + " " + lname;
+const registerUser = async (req, res) => {
+  const fname = req.body.firstName;
+  const lname = req.body.lastName;
+  const uname = fname + " " + lname;
 
-  let uemail = req.body.email;
-  let num = req.body.mobile;
+  const uemail = req.body.email;
+  const num = req.body.mobile;
 
-  let pass = req.body.password;
-  let cpass = req.body.cpassword;
+  const pass = req.body.password;
+  const cpass = req.body.cpassword;
   //const user = req.body;
   // console.log(pass);
   // console.log(cpass);
 
   try {
-    let userExist = await Users.findOne({ email: uemail });
+    const userExist = await Users.findOne({ email: uemail });
 
     if (userExist) {
       res.status(400).json({ Error: "User Alreay Exist" });
     } else {
       if (pass == cpass) {
-        //let salt = bcrypt.genSaltSync(10);
-        //let secpass = bcrypt.hashSync(pass, salt);
+        //const salt = bcrypt.genSaltSync(10);
+        //const secpass = bcrypt.hashSync(pass, salt);
 
-        let newUser = await new Users({
+        const newUser = await new Users({
           _id: new mongoose.Types.ObjectId(),
           name: uname,
           email: uemail,
@@ -41,7 +39,7 @@ const sendEmail = async (email, text) => {};
           password: pass,
         });
 
-        let addedUser = await newUser.save();
+        const addedUser = await newUser.save();
 
         if (addedUser) {
           res.status(200).json({ Success: "User Added" });
@@ -58,15 +56,15 @@ const sendEmail = async (email, text) => {};
   }
 };
 
- const loginCheck = async (req, res) => {
-  let email = req.body.email;
-  let password = req.body.password;
+const loginCheck = async (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
 
   try {
-    let userf = await Users.findOne({ email: email });
+    const userf = await Users.findOne({ email: email });
 
     if (userf) {
-      //let comparePassword=await bcrypt.compare(password, user.password);
+      //const comparePassword=await bcrypt.compare(password, user.password);
 
       if (password === userf.password) {
         // res.send(userf,"Login successful");
@@ -83,15 +81,15 @@ const sendEmail = async (email, text) => {};
   }
 };
 
- const resetPassword = async (req, res) => {
-  let email = req.body.pemail;
+const resetPassword = async (req, res) => {
+  const email = req.body.pemail;
   //console.log(email);
-  let Npassword = req.body.Npassword;
+  const Npassword = req.body.Npassword;
   // console.log(Npassword);
   const { id, token } = req.params;
 
   try {
-    let userf = await Users.findOne({ email: email });
+    const userf = await Users.findOne({ email: email });
     //console.log((userf._id).toString());
 
     //console.log(id);
@@ -106,7 +104,7 @@ const sendEmail = async (email, text) => {};
   }
 
   try {
-    let userf = await Users.findOne({ email: email });
+    const userf = await Users.findOne({ email: email });
     //console.log(userf);
     const secret = JWT_SECRET + userf.password;
     const payload = jwt.verify(token, secret);
@@ -126,13 +124,13 @@ const sendEmail = async (email, text) => {};
 
 const JWT_SECRET = "some super secret..";
 
- const  ForgotPassword = async (req, res) => {
+const ForgotPassword = async (req, res) => {
   //console.log(email);
 
   try {
     const email = req.body.femail;
     console.log(email);
-    let userf = await Users.findOne({ email: email });
+    const userf = await Users.findOne({ email: email });
     console.log(email);
     //console.log(user.password);
     //console.log(JSON.stringify(user._id));
@@ -186,7 +184,7 @@ const JWT_SECRET = "some super secret..";
   }
 };
 
- const getusers = async (request, response) => {
+const getusers = async (request, response) => {
   const users = await Users.find();
   try {
     response.status(200).json(users);
@@ -195,7 +193,7 @@ const JWT_SECRET = "some super secret..";
   }
 };
 
- const getUserById = async (request, response) => {
+const getUserById = async (request, response) => {
   try {
     const user = await Users.findById(request.params.id);
     response.status(200).json(user);
@@ -204,14 +202,13 @@ const JWT_SECRET = "some super secret..";
   }
 };
 
- const editUser = async (request, response) => {
-
+const editUser = async (request, response) => {
   Users.updateOne({ _id: request.params.id }, request.body).then((result) => {
     response.status(200).json({ message: "Update successful!" });
   });
 };
 
- const deleteusers = async (request, response) => {
+const deleteusers = async (request, response) => {
   try {
     await Users.deleteOne({ _id: request.params.id });
     response.status(201).json("User deleted Successfully");
@@ -220,4 +217,95 @@ const JWT_SECRET = "some super secret..";
   }
 };
 
-export {ForgotPassword,registerUser,loginCheck,getUserById,getusers,deleteusers,editUser,resetPassword}
+const addfeedback = async (req, res, next) => {
+  const femail = req.body.email;
+  const feedback = req.body.feedback;
+  // console.log(femail);
+  const userExist = await Users.findOne({ email: femail });
+  console.log(userExist);
+  if (userExist) {
+    try {
+      const newFeedback = await new Feedback({
+        _id: new mongoose.Types.ObjectId(),
+        email: femail,
+        feedback: feedback,
+      });
+
+      const addNewFeedback = await newFeedback.save();
+
+      if (addNewFeedback) {
+        res.status(200).json({
+          Success: "New feedback added",
+        });
+      }
+    } catch (error) {
+      res.status(401).json({
+        message: "Something went wrong",
+        error: `Error getting data : ${error.message}`,
+      });
+    }
+  } else {
+    res.status(500).json({
+      Error: "User not found",
+    });
+  }
+};
+
+const deletefeedback = async (req, res) => {
+  try {
+    await Feedback.deleteOne({ _id: req.params.id });
+    res.status(200).json({
+      Success: "Feedback is deleted",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Something went wrong",
+      error: `Error getting data : ${error.message}`,
+    });
+  }
+};
+
+const getfeedback = async (req, res) => {
+  try {
+    console.log("Feedback Calling");
+    const feedbacks = await Feedback.find({});
+    console.log(feedbacks);
+
+    res.status(200).json(feedbacks);
+  } catch (error) {
+    res.status(500).json({
+      message: "Something went wrong",
+      error: `Error getting data : ${error.message}`,
+    });
+  }
+};
+
+const getPayment = async (req, res) => {
+  try {
+    //console.log("Feedback Calling")
+    const query = req.query.email;
+    const userExist = await Users.findOne({ email: query });
+    console.log(userExist);
+
+    res.status(200).json(userExist);
+  } catch (error) {
+    res.status(500).json({
+      message: "Something went wrong",
+      error: `Error getting data : ${error.message}`,
+    });
+  }
+};
+export {
+  ForgotPassword,
+  registerUser,
+  loginCheck,
+  getUserById,
+  getusers,
+  deleteusers,
+  editUser,
+  resetPassword,
+  addfeedback,
+  deletefeedback,
+  getfeedback,
+  getPayment,
+};

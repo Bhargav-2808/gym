@@ -1,17 +1,18 @@
 import express from 'express';
-import cros from 'cors';
-import router from './routes/router.js';
+import cors from 'cors';
+import {route} from './routes/router.js';
 import bodyParser from 'body-parser';
 import database from './database/database.js';
 
 const app = express();
 
-app.use(cros());
+app.use(cors());
 database;
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
-app.use('/',router);
+app.use('/',route);
+
 
 
 

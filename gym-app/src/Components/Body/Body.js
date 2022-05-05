@@ -8,6 +8,7 @@ import Footer from "../Footer/Footer";
 import BodyTop from "./BodyTop";
 import Chart_ from "./Chart_";
 import About from "../About/About";
+import Feedback from "./Feedback";
 
 
 function Body() {
@@ -17,8 +18,9 @@ function Body() {
     <>
       <BodyTop/>
       <About/>
-  
+        
       <Pricing />
+      <Feedback/>
       {/* <Chart_ /> */}
       
       

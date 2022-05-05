@@ -1,7 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, createRef } from "react";
 import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
+import Pdf from "react-to-pdf";
 
+const ref = createRef();
 function Pricing() {
+  const [amount, setAmount] = useState(null);
+
+  var data = sessionStorage.getItem("logdetails");
+  var data1 = JSON.parse(data);
+  console.log(data1);
+  const name = data1?.data?.user?.name;
+  const email = data1?.data?.user?.email;
+  const mobile = data1?.data?.user?.mobile;
+  var today = new Date();
+  var date =
+    today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
+  var time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  console.log(date, time);
+
   const [show1, setShow1] = useState(false);
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
@@ -13,18 +30,44 @@ function Pricing() {
         onHide={handleClose1}
         backdrop="static"
         keyboard={false}
-        size="lg"
+        size="sm"
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Your Payment Receipt</Modal.Title>
-        </Modal.Header>
+        
+          <Modal.Header>
+            <Modal.Title>Your Payment Receipt</Modal.Title>
+          </Modal.Header>
 
-        <Modal.Body></Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose1}>
-            Close
-          </Button>
-        </Modal.Footer>
+          {
+            data1?(<Modal.Body>
+            <Card style={{ width: "17rem" }} className="pay-card">
+              <Card.Body ref={ref}>
+                <Card.Title>Name : {name}</Card.Title>
+                <p>Email : {email}</p>
+                <p>Mobile No : {mobile}</p>
+                <Card.Text>Date : {date}</Card.Text>
+                <p>Time of Payment : {time}</p>
+                <p>Payment Amount : {amount}</p>
+                <p>Payment Status : Done</p>
+              </Card.Body>
+            </Card>
+          </Modal.Body>):(<Modal.Body>Please Login for Payment !</Modal.Body>)
+}
+          
+
+        {
+          data1?(<Modal.Footer className="d-flex justify-content-center">
+          <Pdf targetRef={ref} filename="payment.pdf">
+            {({ toPdf }) => (
+              <button className="pdfDownload" onClick={toPdf}>
+                Download Receipt
+              </button>
+            )}
+          </Pdf>
+        
+        </Modal.Footer>):<></>
+        }
+        
+        <Button onClick={handleClose1}>Close</Button>
       </Modal>
       <Container className="py-5">
         <Row className="mt-1">
@@ -47,18 +90,17 @@ function Pricing() {
                 </span>
               </h2>
 
-              <a
+              <button
                 href="#"
-                className="btn  btn-block p-3 shadow rounded-pill mb-3 mt-3"
-                style={{
-                  backgroundColor: "#1b4a84",
-                  color: "white",
-                  border: "1px solid white",
+                className="join-button-1 mt-4 mb-4"
+              
+                onClick={() => {
+                  setAmount(4900);
+                  handleShow1();
                 }}
-                onClick={handleShow1}
               >
-                Join now
-              </a>
+                Join Now
+              </button>
             </div>
           </Col>
 
@@ -76,18 +118,16 @@ function Pricing() {
                   / Year
                 </span>
               </h2>
-              <a
+              <button
                 href="#"
-                className="btn  btn-block p-3 shadow rounded-pill mb-3 mt-3"
-                style={{
-                  backgroundColor: "white",
-                  color: "#1b4a84",
-                  border: "1px solid #1b4a84",
+                className="join-button-2 mt-4 mb-4"
+                onClick={() => {
+                  setAmount(9999);
+                  handleShow1();
                 }}
-                onClick={handleShow1}
               >
-                Join now
-              </a>
+                Join Now
+              </button>
             </div>
           </Col>
 
@@ -103,18 +143,16 @@ function Pricing() {
                 </span>
               </h2>
 
-              <a
+              <button
                 href="#"
-                className="btn  btn-block p-3 shadow rounded-pill mb-3 mt-3"
-                style={{
-                  backgroundColor: "#1b4a84",
-                  color: "white",
-                  border: "1px solid white",
+                className="join-button-1 mt-4 mb-4"
+                onClick={() => {
+                  setAmount(14999);
+                  handleShow1();
                 }}
-                onClick={handleShow1}
               >
-                Join now
-              </a>
+                Join Now
+              </button>
             </div>
           </Col>
         </Row>

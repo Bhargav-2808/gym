@@ -29,3 +29,12 @@
     cursor: pointer;
 }
 
+.card-header{
+    background-color: #212529!important;
+    color: white !important;
+}
+.card-body{
+    background-color: #2c3034 !important;
+    color: white!important;
+}
+

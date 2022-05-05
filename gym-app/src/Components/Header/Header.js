@@ -48,6 +48,8 @@ const Header = () => {
     //sessionStorage.clear();
     sessionStorage.setItem("login", false);
     sessionStorage.setItem("admin", false);
+    sessionStorage.setItem("logdetails", false);
+    
     window.location.reload(false);
     //console.log( sessionStorage.setItem("login",false));
     nav("/");
@@ -80,6 +82,7 @@ const Header = () => {
             <Link to="/class">
               <Button className="headerbutton me-2">Class</Button>
             </Link>
+            
             {
               //   (sessionStorage.getItem("login")===true)?( <Button className="supButton mx-2" onClick={logout}>Log Out</Button>):<Link to="/login">
               //   <Button className="supButton mx-2">Login</Button>

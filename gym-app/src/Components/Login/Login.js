@@ -35,6 +35,7 @@ function Login() {
     let response = await LoginCheck(data);
     if (response) {
       sessionStorage.setItem("login", true);
+      sessionStorage.setItem("logdetails",JSON.stringify(response));
       navigate("/");
     }
 

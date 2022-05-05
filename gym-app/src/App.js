@@ -16,7 +16,8 @@ import Cardio from "./Components/Classes/Cardio";
 import Zumba from "./Components/Classes/Zumba";
 import Admin from "./Components/Admin/Admin";
 import EditAdmin from "./Components/Admin/EditAdmin";
-import Protected from "./Components/Protected/Protected";
+
+import Protected from './Components/Protected/Protected'
 
 function App() {
   // useEffect( ()=>{
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/class/cardio" element={<Cardio />} />
         <Route exact path="/class/zumba" element={<Zumba />} />
         <Route exact path="/editadmin/:id" element={<EditAdmin />} />
+      
         <Route
           path="/admin"
           element={
