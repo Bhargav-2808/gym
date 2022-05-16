@@ -1,6 +1,6 @@
 import React, { useState, createRef } from "react";
 import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
-import Pdf from "react-to-pdf";
+// import Pdf from 'react-to-pdf';
 
 const ref = createRef();
 function Pricing() {
@@ -54,7 +54,7 @@ function Pricing() {
 }
           
 
-        {
+        {/* {
           data1?(<Modal.Footer className="d-flex justify-content-center">
           <Pdf targetRef={ref} filename="payment.pdf">
             {({ toPdf }) => (
@@ -65,7 +65,7 @@ function Pricing() {
           </Pdf>
         
         </Modal.Footer>):<></>
-        }
+        } */}
         
         <Button onClick={handleClose1}>Close</Button>
       </Modal>

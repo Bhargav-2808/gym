@@ -19,7 +19,7 @@ function Body() {
       <BodyTop/>
       <About/>
         
-      <Pricing />
+      {/* <Pricing /> */}
       <Feedback/>
       {/* <Chart_ /> */}
       

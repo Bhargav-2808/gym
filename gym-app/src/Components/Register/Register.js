@@ -104,7 +104,8 @@ function Register() {
                   placeholder="Password"
                   {...register("password", {
                     required: true,
-                    min: 8,
+                    min: 5,
+                    pattern: /^(?=[^A-Z\s]*[A-Z])(?=[^a-z\s]*[a-z])(?=[^\d\s]*\d)(?=\w*[\W_])\S{8,}$/
                   })}
                 />
                 <button className="eye">
@@ -113,7 +114,10 @@ function Register() {
               </div>
              
               <span style={{ color: "red", fontSize: "12px" }}>
-                {errors.password?.type === "required" && "Password is required"}</span>
+                {errors.password?.type === "required" && "Password is required"
+                
+               
+                }</span>
                 <span style={{ color: "red", fontSize: "12px" }}>
                 {errors.Npassword &&
                   "Enter password in valid formate(min 8 char)"}
@@ -128,7 +132,8 @@ function Register() {
                   placeholder="Password"
                   {...register("cpassword", {
                     required: true,
-                    min: 8,
+                    min: 5,
+                    pattern: /^(?=[^A-Z\s]*[A-Z])(?=[^a-z\s]*[a-z])(?=[^\d\s]*\d)(?=\w*[\W_])\S{8,}$/
                   })}
                 />
                 <button className="eye">
