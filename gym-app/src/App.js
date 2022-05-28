@@ -18,6 +18,8 @@ import Admin from "./Components/Admin/Admin";
 import EditAdmin from "./Components/Admin/EditAdmin";
 
 import Protected from './Components/Protected/Protected'
+import PremiumExercise from "./Components/Body/PremiumExersice";
+import Chart_ from "./Components/Body/Chart_";
 
 function App() {
   // useEffect( ()=>{
@@ -32,7 +34,8 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/class" element={<Gym />} />
         <Route exact path="/forgotpassword" element={<ForgotPwd />} />
-        <Route exact path="/premium" element={<Premium />} />
+        <Route exact path="/premium/diet" element={<Premium />} />
+        <Route exact path="/premium/exercise" element={<PremiumExercise />} />
         <Route exact path="/resetpassword/:id/:token" element={<ResetPwd />} />
         <Route exact path="/class/gym" element={<Gym />} />
         <Route exact path="/class/yoga" element={<Yoga />} />

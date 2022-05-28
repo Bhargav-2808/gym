@@ -110,7 +110,7 @@ const Header = () => {
               <></>
             )}
 
-            <Link to="/premium">
+            <Link to="/premium/diet">
               <Button
                 className={`headerbutton mx-2 ${
                   sessionStorage.getItem("login") === "true" ? "" : "d-none"

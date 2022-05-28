@@ -21,6 +21,7 @@ const Chart_ = ({ data_ }) => {
 
   return (
     <>
+    
       <Container className="mt-4">
         <Row>
           <Col className="d-flex justify-content-center">
@@ -41,6 +42,7 @@ const Chart_ = ({ data_ }) => {
           <Col className="ms-4">
             {task == "Weight gain" ? (
               <>
+                <h1>Weight Gain</h1>
                 <h4 className="mt-4 meal-header">Day One</h4>
                 <hr className="mt-3 mb-3" />
                 <p>
@@ -355,6 +357,7 @@ const Chart_ = ({ data_ }) => {
               </>
             ) : (
               <>
+                <h1>Weight Loss</h1>
                 <h4 className="mt-4 meal-header">Day One</h4>
                 <hr className="mt-3 mb-3" />
                 <p>

@@ -22,7 +22,7 @@ function BodyTop() {
                         <p className='bodyTopPara'>
                           Empower your self with us
                         </p>
-                        <Link  to="/premium"><Button className={`preButton mx-2 ${sessionStorage.getItem("login")==="true"?'':'d-none' } ${sessionStorage.getItem("login")==="false"?'d-none':'' }`}>GET STARTED</Button></Link>
+                        <Link  to="/premium/diet"><Button className={`preButton mx-2 ${sessionStorage.getItem("login")==="true"?'':'d-none' } ${sessionStorage.getItem("login")==="false"?'d-none':'' }`}>GET STARTED</Button></Link>
                         </div>
                       </Col>
                       
